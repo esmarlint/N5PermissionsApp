@@ -1,0 +1,57 @@
+@baseUrl = http://localhost:5000/api
+
+### Solicitar un nuevo permiso de lectura
+POST {{baseUrl}}/RequestPermission
+Content-Type: application/json
+
+{
+  "employeeName": "John",
+  "employeeLastName": "Doe",
+  "permissionTypeId": 1
+}
+
+### Solicitar un nuevo permiso de escritura
+POST {{baseUrl}}/RequestPermission
+Content-Type: application/json
+
+{
+  "employeeName": "Jane",
+  "employeeLastName": "Smith",
+  "permissionTypeId": 2
+}
+
+### Solicitar un permiso con tipo inválido
+POST {{baseUrl}}/RequestPermission
+Content-Type: application/json
+
+{
+  "employeeName": "Invalid",
+  "employeeLastName": "User",
+  "permissionTypeId": 999
+}
+
+### Solicitar un permiso con datos incompletos
+POST {{baseUrl}}/RequestPermission
+Content-Type: application/json
+
+{
+  "employeeName": "",
+  "employeeLastName": "Incomplete",
+  "permissionTypeId": 1
+}
+
+### Modificar un permiso existente (asumiendo que implementamos esta funcionalidad)
+PUT {{baseUrl}}/ModifyPermission/1
+Content-Type: application/json
+
+{
+  "employeeName": "John",
+  "employeeLastName": "Doe Updated",
+  "permissionTypeId": 3
+}
+
+### Obtener todos los permisos (asumiendo que implementamos esta funcionalidad)
+GET {{baseUrl}}/GetPermissions
+
+### Obtener un permiso específico por ID (asumiendo que implementamos esta funcionalidad)
+GET {{baseUrl}}/GetPermissions/1

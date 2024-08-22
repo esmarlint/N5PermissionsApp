@@ -54,6 +54,10 @@ $RECYCLE.BIN/
 # VS Code
 .vscode/
 
+# Visual Studio
+.vs/
+
+
 # Rider
 .idea/
 *.sln.iml
