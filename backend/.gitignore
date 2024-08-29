@@ -23,8 +23,7 @@ out/
 appsettings*.json
 launchSettings.json
 
-# Entity Framework
-Migrations/
+logs/
 
 # dotnet package directories
 *.nuget/
