@@ -20,8 +20,6 @@ out/
 *.log
 
 # Configuration
-appsettings*.json
-launchSettings.json
 
 logs/
 
