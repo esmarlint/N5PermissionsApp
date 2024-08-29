@@ -1,8 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using N5PermissionsAPI.Core.Models;
+using N5PermissionsAPI.Features.GetPermissionTypes;
 
-namespace N5PermissionsAPI.Features.GetPermissionTypes
+namespace N5PermissionsAPI.Application.Controllers
 {
     [ApiController]
     [Route("api/permission-types")]

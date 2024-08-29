@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using N5PermissionsAPI.Features.RequestPermission;
 
-namespace N5PermissionsAPI.Application.Features.RequestPermission;
+namespace N5PermissionsAPI.Application.Controllers;
 
 [ApiController]
 [Route("api/permissions")]

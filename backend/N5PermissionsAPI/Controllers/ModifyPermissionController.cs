@@ -1,7 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using N5PermissionsAPI.Features.ModifyPermission;
 
-namespace N5PermissionsAPI.Features.ModifyPermission;
+namespace N5PermissionsAPI.Application.Controllers;
 
 [ApiController]
 [Route("api/permissions")]
@@ -39,7 +40,7 @@ public class ModifyPermissionController : ControllerBase
         if (!result.IsSuccess)
         {
             _logger.LogWarning("ModifyPermission failed: {ErrorMessage}", result.ErrorMessage);
-            return StatusCode(500, result.ErrorMessage); // O un código de error genérico
+            return StatusCode(500, result.ErrorMessage);
         }
 
         return NoContent();
