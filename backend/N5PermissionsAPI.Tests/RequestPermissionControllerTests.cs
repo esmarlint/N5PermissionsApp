@@ -12,6 +12,7 @@ using N5PermissionsAPI.Core.Common;
 using N5PermissionsAPI.Features.ModifyPermission;
 using N5PermissionsAPI.Core.DTOs;
 using N5PermissionsAPI.Application.Features.GetPermissions;
+using N5PermissionsAPI.Application.Controllers;
 
 namespace N5PermissionsAPI.Services;
 

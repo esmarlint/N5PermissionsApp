@@ -1,9 +1,10 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using N5PermissionsAPI.Application.Features.GetPermissions;
 using N5PermissionsAPI.Core.Common;
 using N5PermissionsAPI.Core.DTOs;
 
-namespace N5PermissionsAPI.Application.Features.GetPermissions;
+namespace N5PermissionsAPI.Application.Controllers;
 
 [ApiController]
 [Route("api/permissions")]
