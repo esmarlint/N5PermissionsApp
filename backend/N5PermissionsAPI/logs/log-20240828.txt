@@ -1,0 +1,388 @@
+2024-08-28 22:48:14.602 -04:00 [ERR] An error occurred while seeding the database.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+ ---> System.ComponentModel.Win32Exception (53): The network path was not found.
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at N5PermissionsAPI.Persistence.DbContexts.DbInitializer.Initialize(ApplicationDbContext context) in C:\Users\esmar\source\repos\N5PermissionApi\backend\N5PermissionsAPI.Persistence\DbContexts\DbInitializer.cs:line 10
+   at Program.<Main>$(String[] args) in C:\Users\esmar\source\repos\N5PermissionApi\backend\N5PermissionsAPI\Program.cs:line 80
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:53,State:0,Class:20
+2024-08-28 22:48:15.991 -04:00 [INF] Now listening on: https://localhost:7214
+2024-08-28 22:48:15.994 -04:00 [INF] Now listening on: http://localhost:5257
+2024-08-28 22:48:15.996 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-28 22:48:15.997 -04:00 [INF] Hosting environment: Development
+2024-08-28 22:48:16.000 -04:00 [INF] Content root path: C:\Users\esmar\source\repos\N5PermissionApi\backend\N5PermissionsAPI
+2024-08-28 22:48:16.701 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/swagger - null null
+2024-08-28 22:48:16.979 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/swagger - 301 0 null 283.9274ms
+2024-08-28 22:48:16.985 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/swagger/index.html - null null
+2024-08-28 22:48:17.169 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/swagger/swagger-ui-standalone-preset.js - null null
+2024-08-28 22:48:17.182 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-28 22:48:17.169 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/swagger/swagger-ui.css - null null
+2024-08-28 22:48:17.169 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/swagger/swagger-ui-bundle.js - null null
+2024-08-28 22:48:17.182 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/swagger/index.html - 200 null text/html;charset=utf-8 197.1528ms
+2024-08-28 22:48:17.212 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/_framework/aspnetcore-browser-refresh.js - 200 13792 application/javascript; charset=utf-8 31.963ms
+2024-08-28 22:48:17.297 -04:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-08-28 22:48:17.297 -04:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-08-28 22:48:17.300 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/swagger/swagger-ui.css - 200 143943 text/css 131.2537ms
+2024-08-28 22:48:17.305 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/swagger/swagger-ui-standalone-preset.js - 200 339486 text/javascript 136.126ms
+2024-08-28 22:48:17.337 -04:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-08-28 22:48:17.342 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/swagger/swagger-ui-bundle.js - 200 1096145 text/javascript 173.0422ms
+2024-08-28 22:48:17.395 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/_vs/browserLink - null null
+2024-08-28 22:48:17.512 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/_vs/browserLink - 200 null text/javascript; charset=UTF-8 117.1597ms
+2024-08-28 22:48:17.624 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/swagger/favicon-32x32.png - null null
+2024-08-28 22:48:17.627 -04:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-08-28 22:48:17.628 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/swagger/favicon-32x32.png - 200 628 image/png 4.0142ms
+2024-08-28 22:48:17.726 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/swagger/v1/swagger.json - null null
+2024-08-28 22:48:18.073 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 347.6227ms
+2024-08-28 22:49:00.043 -04:00 [ERR] An error occurred while seeding the database.
+System.InvalidOperationException: Instance failure.
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at N5PermissionsAPI.Persistence.DbContexts.DbInitializer.Initialize(ApplicationDbContext context) in C:\Users\esmar\source\repos\N5PermissionApi\backend\N5PermissionsAPI.Persistence\DbContexts\DbInitializer.cs:line 10
+   at Program.<Main>$(String[] args) in C:\Users\esmar\source\repos\N5PermissionApi\backend\N5PermissionsAPI\Program.cs:line 80
+2024-08-28 22:49:00.639 -04:00 [INF] Now listening on: https://localhost:7214
+2024-08-28 22:49:00.645 -04:00 [INF] Now listening on: http://localhost:5257
+2024-08-28 22:49:00.648 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-28 22:49:00.651 -04:00 [INF] Hosting environment: Development
+2024-08-28 22:49:00.655 -04:00 [INF] Content root path: C:\Users\esmar\source\repos\N5PermissionApi\backend\N5PermissionsAPI
+2024-08-28 22:49:01.564 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/swagger/index.html - null null
+2024-08-28 22:49:02.328 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/swagger/index.html - 200 null text/html;charset=utf-8 769.8125ms
+2024-08-28 22:49:02.635 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-28 22:49:02.635 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/_vs/browserLink - null null
+2024-08-28 22:49:02.732 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/_framework/aspnetcore-browser-refresh.js - 200 13792 application/javascript; charset=utf-8 102.4638ms
+2024-08-28 22:49:03.114 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/_vs/browserLink - 200 null text/javascript; charset=UTF-8 479.9137ms
+2024-08-28 22:49:03.182 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/swagger/v1/swagger.json - null null
+2024-08-28 22:49:03.543 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 361.1266ms
+2024-08-28 22:49:23.346 -04:00 [ERR] An error occurred while seeding the database.
+System.InvalidOperationException: Instance failure.
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternal(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext _, TState s)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at N5PermissionsAPI.Persistence.DbContexts.DbInitializer.Initialize(ApplicationDbContext context) in C:\Users\esmar\source\repos\N5PermissionApi\backend\N5PermissionsAPI.Persistence\DbContexts\DbInitializer.cs:line 10
+   at Program.<Main>$(String[] args) in C:\Users\esmar\source\repos\N5PermissionApi\backend\N5PermissionsAPI\Program.cs:line 80
+2024-08-28 22:49:23.772 -04:00 [INF] Now listening on: https://localhost:7214
+2024-08-28 22:49:23.775 -04:00 [INF] Now listening on: http://localhost:5257
+2024-08-28 22:49:23.776 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-28 22:49:23.777 -04:00 [INF] Hosting environment: Development
+2024-08-28 22:49:23.777 -04:00 [INF] Content root path: C:\Users\esmar\source\repos\N5PermissionApi\backend\N5PermissionsAPI
+2024-08-28 22:49:24.568 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/swagger/index.html - null null
+2024-08-28 22:49:25.276 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/swagger/index.html - 200 null text/html;charset=utf-8 715.4745ms
+2024-08-28 22:49:25.283 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-28 22:49:25.316 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/_framework/aspnetcore-browser-refresh.js - 200 13792 application/javascript; charset=utf-8 32.7212ms
+2024-08-28 22:49:25.551 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/_vs/browserLink - null null
+2024-08-28 22:49:25.674 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/_vs/browserLink - 200 null text/javascript; charset=UTF-8 122.7809ms
+2024-08-28 22:49:25.833 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/swagger/v1/swagger.json - null null
+2024-08-28 22:49:26.111 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 281.9475ms
+2024-08-28 22:50:05.528 -04:00 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-08-28 22:50:05.623 -04:00 [INF] Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2024-08-28 22:50:05.751 -04:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PermissionTypes] (
+    [Id] int NOT NULL IDENTITY,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_PermissionTypes] PRIMARY KEY ([Id])
+);
+2024-08-28 22:50:05.756 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Permissions] (
+    [Id] int NOT NULL IDENTITY,
+    [EmployeeName] nvarchar(max) NOT NULL,
+    [EmployeeLastName] nvarchar(max) NOT NULL,
+    [PermissionTypeId] int NOT NULL,
+    [PermissionDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_Permissions] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Permissions_PermissionTypes_PermissionTypeId] FOREIGN KEY ([PermissionTypeId]) REFERENCES [PermissionTypes] ([Id]) ON DELETE CASCADE
+);
+2024-08-28 22:50:05.762 -04:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Permissions_PermissionTypeId] ON [Permissions] ([PermissionTypeId]);
+2024-08-28 22:50:05.773 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-08-28 22:50:05.778 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-08-28 22:50:05.780 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-08-28 22:50:05.798 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2024-08-28 22:50:05.802 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-08-28 22:50:05.806 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-08-28 22:50:05.816 -04:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-08-28 22:50:05.835 -04:00 [INF] Applying migration '20240829024313_InitialMigration'.
+2024-08-28 22:50:05.886 -04:00 [ERR] Failed executing DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PermissionTypes] (
+    [Id] int NOT NULL IDENTITY,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_PermissionTypes] PRIMARY KEY ([Id])
+);
+2024-08-28 22:50:05.917 -04:00 [ERR] An error occurred while seeding the database.
+Microsoft.Data.SqlClient.SqlException (0x80131904): There is already an object named 'PermissionTypes' in the database.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IEnumerable`1 migrationCommands, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.Migrate(DatabaseFacade databaseFacade)
+   at N5PermissionsAPI.Persistence.DbContexts.DbInitializer.Initialize(ApplicationDbContext context) in C:\Users\esmar\source\repos\N5PermissionApi\backend\N5PermissionsAPI.Persistence\DbContexts\DbInitializer.cs:line 12
+   at Program.<Main>$(String[] args) in C:\Users\esmar\source\repos\N5PermissionApi\backend\N5PermissionsAPI\Program.cs:line 80
+ClientConnectionId:234cb5f9-288e-4d85-945d-45b0b287618e
+Error Number:2714,State:6,Class:16
+2024-08-28 22:50:06.353 -04:00 [INF] Now listening on: https://localhost:7214
+2024-08-28 22:50:06.356 -04:00 [INF] Now listening on: http://localhost:5257
+2024-08-28 22:50:06.358 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-28 22:50:06.359 -04:00 [INF] Hosting environment: Development
+2024-08-28 22:50:06.361 -04:00 [INF] Content root path: C:\Users\esmar\source\repos\N5PermissionApi\backend\N5PermissionsAPI
+2024-08-28 22:50:07.384 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/swagger/index.html - null null
+2024-08-28 22:50:07.853 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/swagger/index.html - 200 null text/html;charset=utf-8 479.1376ms
+2024-08-28 22:50:07.861 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-28 22:50:07.893 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/_framework/aspnetcore-browser-refresh.js - 200 13792 application/javascript; charset=utf-8 33.3541ms
+2024-08-28 22:50:08.110 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/_vs/browserLink - null null
+2024-08-28 22:50:08.480 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/_vs/browserLink - 200 null text/javascript; charset=UTF-8 370.0797ms
+2024-08-28 22:50:08.609 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/swagger/v1/swagger.json - null null
+2024-08-28 22:50:09.033 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 424.2919ms
+2024-08-28 22:52:07.128 -04:00 [INF] Executed DbCommand (38ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-08-28 22:52:07.225 -04:00 [INF] Executed DbCommand (37ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2024-08-28 22:52:07.331 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PermissionTypes] (
+    [Id] int NOT NULL IDENTITY,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_PermissionTypes] PRIMARY KEY ([Id])
+);
+2024-08-28 22:52:07.334 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Permissions] (
+    [Id] int NOT NULL IDENTITY,
+    [EmployeeName] nvarchar(max) NOT NULL,
+    [EmployeeLastName] nvarchar(max) NOT NULL,
+    [PermissionTypeId] int NOT NULL,
+    [PermissionDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_Permissions] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Permissions_PermissionTypes_PermissionTypeId] FOREIGN KEY ([PermissionTypeId]) REFERENCES [PermissionTypes] ([Id]) ON DELETE CASCADE
+);
+2024-08-28 22:52:07.337 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Permissions_PermissionTypeId] ON [Permissions] ([PermissionTypeId]);
+2024-08-28 22:52:07.348 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-08-28 22:52:07.353 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-08-28 22:52:07.356 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-08-28 22:52:07.368 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+2024-08-28 22:52:07.372 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-08-28 22:52:07.375 -04:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-08-28 22:52:07.380 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-08-28 22:52:07.396 -04:00 [INF] Applying migration '20240829024313_InitialMigration'.
+2024-08-28 22:52:07.419 -04:00 [ERR] Failed executing DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PermissionTypes] (
+    [Id] int NOT NULL IDENTITY,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_PermissionTypes] PRIMARY KEY ([Id])
+);
+2024-08-28 22:52:07.440 -04:00 [ERR] An error occurred while seeding the database.
+Microsoft.Data.SqlClient.SqlException (0x80131904): There is already an object named 'PermissionTypes' in the database.
+   at Microsoft.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at Microsoft.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean isAsync, Int32 timeout, Boolean asyncWrite)
+   at Microsoft.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry, String methodName)
+   at Microsoft.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IEnumerable`1 migrationCommands, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.Migrate(DatabaseFacade databaseFacade)
+   at N5PermissionsAPI.Persistence.DbContexts.DbInitializer.Initialize(ApplicationDbContext context) in C:\Users\esmar\source\repos\N5PermissionApi\backend\N5PermissionsAPI.Persistence\DbContexts\DbInitializer.cs:line 12
+   at Program.<Main>$(String[] args) in C:\Users\esmar\source\repos\N5PermissionApi\backend\N5PermissionsAPI\Program.cs:line 80
+ClientConnectionId:03c57d25-1a30-433d-96e8-56ac80a15d1c
+Error Number:2714,State:6,Class:16
+2024-08-28 22:52:07.758 -04:00 [INF] Now listening on: https://localhost:7214
+2024-08-28 22:52:07.759 -04:00 [INF] Now listening on: http://localhost:5257
+2024-08-28 22:52:07.761 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-28 22:52:07.762 -04:00 [INF] Hosting environment: Development
+2024-08-28 22:52:07.763 -04:00 [INF] Content root path: C:\Users\esmar\source\repos\N5PermissionApi\backend\N5PermissionsAPI
+2024-08-28 22:52:08.467 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/swagger/index.html - null null
+2024-08-28 22:52:08.982 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/swagger/index.html - 200 null text/html;charset=utf-8 522.5158ms
+2024-08-28 22:52:08.994 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-28 22:52:09.012 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/_framework/aspnetcore-browser-refresh.js - 200 13792 application/javascript; charset=utf-8 17.4997ms
+2024-08-28 22:52:09.275 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/_vs/browserLink - null null
+2024-08-28 22:52:09.391 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/_vs/browserLink - 200 null text/javascript; charset=UTF-8 115.3524ms
+2024-08-28 22:52:09.582 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/swagger/v1/swagger.json - null null
+2024-08-28 22:52:10.034 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 460.8812ms
+2024-08-28 22:52:57.670 -04:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-08-28 22:52:57.768 -04:00 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2024-08-28 22:52:57.865 -04:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [PermissionTypes] (
+    [Id] int NOT NULL IDENTITY,
+    [Description] nvarchar(max) NOT NULL,
+    CONSTRAINT [PK_PermissionTypes] PRIMARY KEY ([Id])
+);
+2024-08-28 22:52:57.868 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Permissions] (
+    [Id] int NOT NULL IDENTITY,
+    [EmployeeName] nvarchar(max) NOT NULL,
+    [EmployeeLastName] nvarchar(max) NOT NULL,
+    [PermissionTypeId] int NOT NULL,
+    [PermissionDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_Permissions] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Permissions_PermissionTypes_PermissionTypeId] FOREIGN KEY ([PermissionTypeId]) REFERENCES [PermissionTypes] ([Id]) ON DELETE CASCADE
+);
+2024-08-28 22:52:57.872 -04:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Permissions_PermissionTypeId] ON [Permissions] ([PermissionTypeId]);
+2024-08-28 22:52:58.294 -04:00 [INF] Now listening on: https://localhost:7214
+2024-08-28 22:52:58.296 -04:00 [INF] Now listening on: http://localhost:5257
+2024-08-28 22:52:58.299 -04:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-08-28 22:52:58.301 -04:00 [INF] Hosting environment: Development
+2024-08-28 22:52:58.302 -04:00 [INF] Content root path: C:\Users\esmar\source\repos\N5PermissionApi\backend\N5PermissionsAPI
+2024-08-28 22:52:58.942 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/swagger/index.html - null null
+2024-08-28 22:52:59.332 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/swagger/index.html - 200 null text/html;charset=utf-8 397.7342ms
+2024-08-28 22:52:59.360 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/_framework/aspnetcore-browser-refresh.js - null null
+2024-08-28 22:52:59.387 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/_framework/aspnetcore-browser-refresh.js - 200 13792 application/javascript; charset=utf-8 27.6828ms
+2024-08-28 22:52:59.593 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/_vs/browserLink - null null
+2024-08-28 22:52:59.746 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/_vs/browserLink - 200 null text/javascript; charset=UTF-8 154.4121ms
+2024-08-28 22:52:59.880 -04:00 [INF] Request starting HTTP/2 GET https://localhost:7214/swagger/v1/swagger.json - null null
+2024-08-28 22:53:00.177 -04:00 [INF] Request finished HTTP/2 GET https://localhost:7214/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 297.2843ms
