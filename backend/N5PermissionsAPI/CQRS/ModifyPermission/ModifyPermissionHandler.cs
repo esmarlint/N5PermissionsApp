@@ -5,7 +5,7 @@ using N5PermissionsAPI.Infrastructure.Services;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace N5PermissionsAPI.Features.ModifyPermission
+namespace N5PermissionsAPI.CQRS.ModifyPermission
 {
     public class ModifyPermissionHandler : IRequestHandler<ModifyPermissionCommand, Result<bool>>
     {

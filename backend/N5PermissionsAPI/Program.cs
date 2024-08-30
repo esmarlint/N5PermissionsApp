@@ -1,7 +1,7 @@
 using FluentValidation.AspNetCore;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
-using N5PermissionsAPI.Features.RequestPermission;
+using N5PermissionsAPI.CQRS.RequestPermission;
 using Serilog;
 using Microsoft.AspNetCore.Diagnostics;
 using N5PermissionsAPI.Core.Interfaces;
@@ -52,24 +52,6 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
-
-//app.MapGet("/test-kafka", async (KafkaService kafkaService) =>
-//{
-//    var success = await kafkaService.TestConnectionAsync();
-//    return success ? Results.Ok("Kafka connection test successful") : Results.BadRequest("Kafka connection test failed");
-//});
-
-//app.Lifetime.ApplicationStarted.Register(() =>
-//{
-//    Task.Run(async () =>
-//    {
-//        var kafkaService = app.Services.GetRequiredService<KafkaService>();
-//        await kafkaService.ConsumeMessagesAsync(
-//            async message => Console.WriteLine($"Received: {message}"),
-//            app.Lifetime.ApplicationStopping
-//        );
-//    });
-//});
 
 using (var scope = app.Services.CreateScope())
 {

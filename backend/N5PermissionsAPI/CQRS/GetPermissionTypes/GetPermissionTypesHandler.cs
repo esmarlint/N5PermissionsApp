@@ -3,7 +3,7 @@ using N5PermissionsAPI.Core.Common;
 using N5PermissionsAPI.Core.Interfaces;
 using N5PermissionsAPI.Core.Models;
 
-namespace N5PermissionsAPI.Features.GetPermissionTypes
+namespace N5PermissionsAPI.CQRS.GetPermissionTypes
 {
     public class GetPermissionTypesHandler : IRequestHandler<GetPermissionTypesQuery, Result<IEnumerable<PermissionType>>>
     {

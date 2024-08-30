@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using N5PermissionsAPI.Features.GetPermissionTypes;
+using N5PermissionsAPI.CQRS.GetPermissionTypes;
 using N5PermissionsAPI.Application.CQRS.PermissionTypes;
 using N5PermissionsAPI.Core.Models;
 using N5PermissionsAPI.Infrastructure.Services;

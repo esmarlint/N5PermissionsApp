@@ -1,7 +1,7 @@
 ﻿
 using FluentValidation;
 
-namespace N5PermissionsAPI.Features.ModifyPermission
+namespace N5PermissionsAPI.CQRS.ModifyPermission
 {
     public class ModifyPermissionValidator : AbstractValidator<ModifyPermissionCommand>
     {

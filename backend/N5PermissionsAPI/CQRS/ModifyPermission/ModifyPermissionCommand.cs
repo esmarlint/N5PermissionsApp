@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using N5PermissionsAPI.Core.Common;
 
-namespace N5PermissionsAPI.Features.ModifyPermission;
+namespace N5PermissionsAPI.CQRS.ModifyPermission;
 
 public class ModifyPermissionCommand : IRequest<Result<bool>>
 {

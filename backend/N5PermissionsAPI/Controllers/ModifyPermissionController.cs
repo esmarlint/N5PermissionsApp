@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using N5PermissionsAPI.Features.ModifyPermission;
+using N5PermissionsAPI.CQRS.ModifyPermission;
 
 namespace N5PermissionsAPI.Application.Controllers;
 

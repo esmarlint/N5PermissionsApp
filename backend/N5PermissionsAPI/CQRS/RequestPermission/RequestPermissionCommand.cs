@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using N5PermissionsAPI.Core.Common;
 
-namespace N5PermissionsAPI.Features.RequestPermission
+namespace N5PermissionsAPI.CQRS.RequestPermission
 {
     public class RequestPermissionCommand : IRequest<Result<int>>
     {

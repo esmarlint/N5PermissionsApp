@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using N5PermissionsAPI.Core.Models;
-using N5PermissionsAPI.Features.GetPermissionTypes;
+using N5PermissionsAPI.CQRS.GetPermissionTypes;
 
 namespace N5PermissionsAPI.Application.Controllers
 {

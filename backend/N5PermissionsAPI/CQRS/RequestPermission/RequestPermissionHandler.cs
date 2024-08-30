@@ -3,11 +3,8 @@ using N5PermissionsAPI.Core.Common;
 using N5PermissionsAPI.Core.Interfaces;
 using N5PermissionsAPI.Core.Models;
 using N5PermissionsAPI.Infrastructure.Services;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace N5PermissionsAPI.Features.RequestPermission
+namespace N5PermissionsAPI.CQRS.RequestPermission
 {
     public class RequestPermissionHandler : IRequestHandler<RequestPermissionCommand, Result<int>>
     {

@@ -2,7 +2,7 @@
 using FluentValidation;
 using N5PermissionsAPI.Application.Features.GetPermissions;
 
-namespace N5PermissionsAPI.Features.GetPermissions
+namespace N5PermissionsAPI.CQRS.GetPermissions
 {
     public class GetPermissionByIdValidator : AbstractValidator<GetPermissionByIdQuery>
     {

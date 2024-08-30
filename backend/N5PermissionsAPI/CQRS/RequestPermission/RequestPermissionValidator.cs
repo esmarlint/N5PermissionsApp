@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using N5PermissionsAPI.Features.RequestPermission;
+using N5PermissionsAPI.CQRS.RequestPermission;
 
-namespace N5PermissionsAPI.Features.RequestPermission
+namespace N5PermissionsAPI.CQRS.RequestPermission
 {
     public class RequestPermissionValidator : AbstractValidator<RequestPermissionCommand>
     {
