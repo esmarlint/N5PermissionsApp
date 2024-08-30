@@ -3,8 +3,8 @@ using N5PermissionsAPI.Core.Common;
 
 namespace N5PermissionsAPI.Application.CQRS.PermissionTypes
 {
-    public class AddPermissionTypeCommand : IRequest<Result<int>>
+    public class RemovePermissionTypeCommand : IRequest<Result<bool>>
     {
-        public string Description { get; set; }
+        public int Id { get; set; }
     }
 }
