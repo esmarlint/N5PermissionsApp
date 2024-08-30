@@ -18,22 +18,6 @@ namespace N5PermissionsAPI.Application.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<PermissionType>>> GetPermissionTypes()
-        {
-            _logger.LogInformation("Received GetPermissionTypes query");
-
-            var query = new GetPermissionTypesQuery();
-            var result = await _mediator.Send(query);
-
-            if (!result.IsSuccess)
-            {
-                _logger.LogWarning("GetPermissionTypes query failed: {ErrorMessage}", result.ErrorMessage);
-                return StatusCode(500, result.ErrorMessage);
-            }
-
-            return Ok(result.Value);
-        }
 
     }
 }

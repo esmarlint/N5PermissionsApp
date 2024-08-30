@@ -17,8 +17,6 @@ Log.Logger = new LoggerConfiguration()
             .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
             .CreateLogger();
 
-
-
 builder.Host.UseSerilog();
 
 builder.Services.Configure<KafkaOptions>(builder.Configuration.GetSection("Kafka"));
@@ -54,6 +52,24 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+//app.MapGet("/test-kafka", async (KafkaService kafkaService) =>
+//{
+//    var success = await kafkaService.TestConnectionAsync();
+//    return success ? Results.Ok("Kafka connection test successful") : Results.BadRequest("Kafka connection test failed");
+//});
+
+//app.Lifetime.ApplicationStarted.Register(() =>
+//{
+//    Task.Run(async () =>
+//    {
+//        var kafkaService = app.Services.GetRequiredService<KafkaService>();
+//        await kafkaService.ConsumeMessagesAsync(
+//            async message => Console.WriteLine($"Received: {message}"),
+//            app.Lifetime.ApplicationStopping
+//        );
+//    });
+//});
 
 using (var scope = app.Services.CreateScope())
 {

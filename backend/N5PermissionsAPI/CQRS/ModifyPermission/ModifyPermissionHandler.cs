@@ -45,7 +45,7 @@ namespace N5PermissionsAPI.Features.ModifyPermission
 
                 await _elasticsearchService.UpdatePermissionAsync(permission);
 
-                await _kafkaService.ProduceMessageAsync(Constans.Kafka.ModifyOperation,permission);
+                await _kafkaService.ProduceMessageAsync(Constans.Kafka.ModifyOperation, permission);
 
                 return Result<bool>.Success(true);
             }

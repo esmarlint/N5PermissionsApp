@@ -39,4 +39,17 @@ export const getPermissionTypes = (): Promise<
   AxiosResponse<PermissionType[]>
 > => api.get("/permission-types");
 
+export const addPermissionType = (data: {
+  description: string;
+}): Promise<AxiosResponse<number>> => api.post("/permission-types", data);
+
+export const editPermissionType = (
+  id: number,
+  data: { description: string }
+): Promise<AxiosResponse<void>> => api.put(`/permission-types/${id}`, data);
+
+export const removePermissionType = (
+  id: number
+): Promise<AxiosResponse<void>> => api.delete(`/permission-types/${id}`);
+
 export default api;

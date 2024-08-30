@@ -40,13 +40,13 @@ public class GetPermissionsHandler :
 
             var paginatedResult = await PaginatedResult<PermissionDto>.CreateAsync(query, request.Params.PageNumber, request.Params.PageSize);
 
-            await _kafkaService.ProduceMessageAsync(Constans.Kafka.GetOperation, new
-            {
-                Operation = "GetPermissions",
-                request.Params.PageNumber,
-                request.Params.PageSize,
-                paginatedResult.TotalCount
-            });
+            //await _kafkaService.ProduceMessageAsync(Constans.Kafka.GetOperation, new
+            //{
+            //    Operation = "GetPermissions",
+            //    request.Params.PageNumber,
+            //    request.Params.PageSize,
+            //    paginatedResult.TotalCount
+            //});
 
             return Result<PaginatedResult<PermissionDto>>.Success(paginatedResult);
         }

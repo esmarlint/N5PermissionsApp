@@ -6,6 +6,7 @@ import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import PermissionList from "./pages/PermissionList/PermissionList";
 import PermissionForm from "./components/PermissionForm";
+import PermissionTypesManagement from "./components/PermissionTypesManagement";
 
 const theme = createTheme({
   palette: {
@@ -29,6 +30,10 @@ const App: React.FC = () => {
             <Route path='/permissions' element={<PermissionList />} />
             <Route path='/permissions/new' element={<PermissionForm />} />
             <Route path='/permissions/edit/:id' element={<PermissionForm />} />
+            <Route
+              path='/permission-types'
+              element={<PermissionTypesManagement />}
+            />
           </Routes>
         </Layout>
       </Router>
