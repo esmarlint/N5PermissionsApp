@@ -77,6 +77,7 @@ const PermissionTypesManagement: React.FC = () => {
     if (editingType) {
       try {
         await editPermissionType(editingType.id, {
+          id: editingType.id,
           description: editingType.description,
         });
         fetchPermissionTypes();

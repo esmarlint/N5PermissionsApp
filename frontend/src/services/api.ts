@@ -45,7 +45,7 @@ export const addPermissionType = (data: {
 
 export const editPermissionType = (
   id: number,
-  data: { description: string }
+  data: { id: number; description: string }
 ): Promise<AxiosResponse<void>> => api.put(`/permission-types/${id}`, data);
 
 export const removePermissionType = (
