@@ -1,12 +1,9 @@
-﻿using Xunit;
-using Moq;
+﻿using Moq;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 using N5PermissionsAPI.CQRS.RequestPermission;
 using MediatR;
-using System.Threading;
 using N5PermissionsAPI.Core.Common;
 using N5PermissionsAPI.CQRS.ModifyPermission;
 using N5PermissionsAPI.Core.DTOs;
@@ -18,14 +15,14 @@ namespace N5PermissionsAPI.Services;
 public class RequestPermissionControllerTests
 {
     private readonly Mock<IMediator> _mockMediator;
-    private readonly Mock<ILogger<RequestPermissionController>> _mockLogger;
-    private readonly RequestPermissionController _controller;
+    private readonly Mock<ILogger<PermissionsController>> _mockLogger;
+    private readonly PermissionsController _controller;
 
     public RequestPermissionControllerTests()
     {
         _mockMediator = new Mock<IMediator>();
-        _mockLogger = new Mock<ILogger<RequestPermissionController>>();
-        _controller = new RequestPermissionController(_mockMediator.Object, _mockLogger.Object);
+        _mockLogger = new Mock<ILogger<PermissionsController>>();
+        _controller = new PermissionsController(_mockMediator.Object, _mockLogger.Object);
     }
 
     [Fact]
@@ -90,14 +87,14 @@ public class RequestPermissionControllerTests
 public class ModifyPermissionControllerTests
 {
     private readonly Mock<IMediator> _mockMediator;
-    private readonly Mock<ILogger<ModifyPermissionController>> _mockLogger;
-    private readonly ModifyPermissionController _controller;
+    private readonly Mock<ILogger<PermissionsController>> _mockLogger;
+    private readonly PermissionsController _controller;
 
     public ModifyPermissionControllerTests()
     {
         _mockMediator = new Mock<IMediator>();
-        _mockLogger = new Mock<ILogger<ModifyPermissionController>>();
-        _controller = new ModifyPermissionController(_mockMediator.Object, _mockLogger.Object);
+        _mockLogger = new Mock<ILogger<PermissionsController>>();
+        _controller = new PermissionsController(_mockMediator.Object, _mockLogger.Object);
     }
 
     [Fact]
@@ -159,14 +156,14 @@ public class ModifyPermissionControllerTests
 public class GetPermissionsControllerTests
 {
     private readonly Mock<IMediator> _mockMediator;
-    private readonly Mock<ILogger<GetPermissionsController>> _mockLogger;
-    private readonly GetPermissionsController _controller;
+    private readonly Mock<ILogger<PermissionsController>> _mockLogger;
+    private readonly PermissionsController _controller;
 
     public GetPermissionsControllerTests()
     {
         _mockMediator = new Mock<IMediator>();
-        _mockLogger = new Mock<ILogger<GetPermissionsController>>();
-        _controller = new GetPermissionsController(_mockMediator.Object, _mockLogger.Object);
+        _mockLogger = new Mock<ILogger<PermissionsController>>();
+        _controller = new PermissionsController(_mockMediator.Object, _mockLogger.Object);
     }
 
     [Fact]

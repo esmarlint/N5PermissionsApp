@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using N5PermissionsAPI.CQRS.GetPermissionTypes;
 using N5PermissionsAPI.Application.CQRS.PermissionTypes;
 using N5PermissionsAPI.Core.Models;
-using N5PermissionsAPI.Infrastructure.Services;
 
 namespace N5PermissionsAPI.Application.Controllers
 {
@@ -77,22 +76,4 @@ namespace N5PermissionsAPI.Application.Controllers
         }
     }
 
-    [ApiController]
-    [Route("[controller]")]
-    public class KafkaTestController : ControllerBase
-    {
-        private readonly KafkaService _kafkaService;
-
-        public KafkaTestController(KafkaService kafkaService)
-        {
-            _kafkaService = kafkaService;
-        }
-
-        [HttpPost("produce")]
-        public async Task<IActionResult> ProduceMessage([FromBody] string message)
-        {
-            await _kafkaService.ProduceMessageAsync(message,new {messaje = "jamon"});
-            return Ok("Message sent to Kafka");
-        }
-    }
 }
